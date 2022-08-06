@@ -1,55 +1,69 @@
-import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-import java.nio.file.*;
-import java.time.*;
-import java.time.format.*;
-public class Signup extends JFrame{
-	    JLabel l1;
-    	ImageIcon icon, logo;
-    	JLabel label1, imgLabel;
-    	Font f1, f2, f3, f4, f5, f6;
-    	JTextField tf1, tf2, tf4, tf5;
-    	JComboBox securityQsn;
-    	JButton btn1, btn2, btn3, btn4, nBtn;
-    	JPasswordField tf3;
-    	Cursor cursor;
-    	int a, b;
+import java.awt.*;
 
 
-    Signup(){  
-		        // frame and title added.
-			JFrame fr1= new JFrame(); 
-			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.setResizable(false);
-			this.setSize(400,400);  
-			this.setLayout(null);  
-			this.setVisible(true);  
-			this.setBounds(400,  50, 900, 650);
-			//this.setBackground(Color.decode("51-153-255"));
-
-        // Fonts
-        f1 = new Font("Segoe UI Black", Font.PLAIN, 35);
-        f2 = new Font("Segoe UI Black", Font.PLAIN, 25);
-        f3 = new Font("Segoe UI Semibold", Font.PLAIN, 35);
-        f4 = new Font("Segoe UI", Font.PLAIN, 25);
-        f5 = new Font("Segoe UI", Font.PLAIN, 19);
-        f6 = new Font("Segoe UI", Font.PLAIN, 25);
-
-		//label adding
-		l1 = new JLabel("Input Your User name :");
-		l1.setBounds(20,50,150,20); 
+public class signup extends JFrame 
+{
+    JFrame frm;
+    JLabel label1,label2,label3,label4,label5;
+    JTextField tf1,tf2,tf3;
+    JPasswordField jp1,jp2;
 
 
+    signup(){
+           // Frame Layout
+        frm = new JFrame("Signup page");
+        frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frm.setResizable(false);
+        frm.setVisible(true);
+       // frm.setBounds(10, 60, 900, 650);
+        frm.setBounds(400, 50, 900, 650);
 
-		//Function adding
-		fr1.add(l1);
+         // User Name
+        label1 = new JLabel("Enter Your Name :");
+        label1.setBounds(150, 50, 500, 50);
 
+         // User Password
+        label2 = new JLabel("Enter Your Password :");
+        label2.setBounds(150, 100, 500, 50);
 
-    }         
+        // User password comform
+        label3 = new JLabel("Conform Your Password :");
+        label3.setBounds(150, 150, 500, 50);
+
+        // User Email account
+        label4 = new JLabel("Enter Your Email Acount :");
+        label4.setBounds(150, 200, 500, 50);
+
+        // User Phone
+        label5 = new JLabel("Enter Your Phone Number :");
+        label5.setBounds(150, 250, 500, 50);
+
+        // User name textfield adding.
+        tf1 = new JTextField();
+        tf1.setBounds(580, 150, 150, 20);
+        tf1.setBackground(Color.lightGray);
+
+        //Email textfield adding.
+        tf2 = new JTextField();
+        tf2.setBounds(580, 200, 150, 20);
+        tf2.setBackground(Color.lightGray);
+
+        // Phone Number textfield adding.
+        tf3 = new JTextField();
+        tf3.setBounds(580, 250, 150, 20);
+        tf3.setBackground(Color.lightGray);
+
+//Adding Part
+frm.add(label1);
+frm.add(label2);
+frm.add(label3);
+frm.add(label4);
+frm.add(label5);
+frm.add(tf1);
+frm.add(tf2);
+frm.add(tf3);
 
 }
 
+}

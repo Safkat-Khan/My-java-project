@@ -23,12 +23,11 @@ public class LogInPage extends JFrame implements ActionListener {
         label1 = new JLabel("Username :");
         label1.setBounds(590, 150, 150, 20);
         label1.setForeground(Color.black);
-        label1.setFont(f1);
+        
         // label2 
         label2 = new JLabel("Password :");
         label2.setBounds(590, 185, 150, 20);
         label2.setForeground(Color.black);
-        label2.setFont(f6);
 
         // textfield adding.
         tf1 = new JTextField();
@@ -156,7 +155,7 @@ public void mouseExited(MouseEvent me)
         }
 
         if (e.getSource() == fpbtn) {
-             new ForgetPass();
+            new ForgetPass();
             frame.setVisible(false);
         }
 
@@ -165,7 +164,7 @@ public void mouseExited(MouseEvent me)
         }
 
         if (e.getSource() == sgbtn) {
-            // new SignUp();
+            new signup();
             frame.setVisible(false);
         }
 
