@@ -27,6 +27,12 @@ public class LogInPage extends JFrame implements ActionListener {
 		users[0] = un1;
 		users[1] = un2;
 		users[2] = un3;
+		
+		
+        // frame and title added.
+        frame = new JFrame("LoginPage");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
 
         //Header
         header = new JLabel("Log In");
@@ -34,10 +40,6 @@ public class LogInPage extends JFrame implements ActionListener {
         header.setForeground(Color.black);
         header.setFont(new Font("Default",Font.BOLD,27));
 
-        // frame and title added.
-        frame = new JFrame("LoginPage");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
         
         //logo
         i1 = new ImageIcon("logo.png");
@@ -186,7 +188,7 @@ public class LogInPage extends JFrame implements ActionListener {
 
     if(e.getSource()==sgbtn)
     {  
-        new signup();
+        new Signup();
         frame.setVisible(false);
     } 
     }

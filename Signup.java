@@ -1,16 +1,15 @@
 import javax.swing.*;
-import javax.swing.text.AttributeSet.ColorAttribute;
-
+import java.awt.event.*;
 import java.awt.*;
 
-public class signup {
+public class Signup {
     JFrame frm;
     JLabel label1,label2,label3,label4,label5,header,imgLabel1;
     JTextField tf1,tf2,tf3;
     JPasswordField jp1,jp2;
     ImageIcon img,i1;
 
-signup(){
+Signup(){
 
            // Frame Layout
         frm = new JFrame("Signup page");
