@@ -41,13 +41,13 @@ public class LogInPage extends JFrame implements ActionListener {
         // logo
         i1 = new ImageIcon("logo.png");
 
-        // label1.
+        // user name label
         label1 = new JLabel("Username :");
         label1.setBounds(590, 150, 150, 20);
         label1.setForeground(Color.black);
         label1.setFont(new Font("Default", Font.BOLD, 15));
 
-        // label2
+        // user password label
         label2 = new JLabel("Password :");
         label2.setBounds(590, 190, 150, 20);
         label2.setForeground(Color.black);
