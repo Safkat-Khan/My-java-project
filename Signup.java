@@ -25,6 +25,7 @@ Signup(){
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frm.setResizable(false);
         frm.setVisible(true);
+        frm.setLayout (null);
 
         //logo
         i1 = new ImageIcon("logo.png");

@@ -10,7 +10,6 @@ public class LogInPage extends JFrame implements ActionListener {
     JPasswordField pf1;
     JButton lgbtn, fpbtn, sgbtn, exbtn, adminbtn;
     ImageIcon img, icon;
-    Font f1, f2, f3, f4, f5, f6;
     ImageIcon i1;
 
     User un1, un2, un3;
@@ -88,8 +87,8 @@ public class LogInPage extends JFrame implements ActionListener {
         // Exit button
         exbtn = new JButton("Exit ✘");
         exbtn.setBounds(815, 3, 80, 30);
-       // exbtn.setBackground(Color.red);
-        exbtn.setBackground(Color.decode("#ff4122"));
+       // exbtn.setForeground(Color.red);
+       // exbtn.setBackground(Color.decode("#ff4122"));
         exbtn.setForeground(Color.black);
         exbtn.addActionListener(this);
         exbtn.setFont(new Font("Default", Font.BOLD, 13));
@@ -159,6 +158,7 @@ public class LogInPage extends JFrame implements ActionListener {
                     }
                 }
                 if (flag == 1) {
+                    new Dashboard(user);
                     frame.setVisible(false);
                 } else {
                     showMessageDialog(null, "Invalid Username or password!");
@@ -176,10 +176,6 @@ public class LogInPage extends JFrame implements ActionListener {
         if (e.getSource() == fpbtn) {
             new ForgetPass();
             frame.setVisible(false);
-        }
-
-        if (e.getSource() == exbtn) {
-            System.exit(0);
         }
 
         if (e.getSource() == sgbtn) {
