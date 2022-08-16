@@ -35,6 +35,15 @@ public class Dashboard implements ActionListener{
 	{  
      //create frame
 		frame = new JFrame ("Dashboard");
+    //adjust size and set layout
+    //frame.setBounds(350,90,900,650);
+    frame.setBounds(10,10,800,650);
+    frame.setLayout (null);
+	frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+
+    frame.setResizable(false);
+    frame.setVisible (true);  
+
 		
      //construct components
         lano = new JLabel ("Account Number");
@@ -51,19 +60,64 @@ public class Dashboard implements ActionListener{
 		
 		display = new JTextArea (5, 5);
 		
+        //Insert Button----------------------------------------------
 		insertBtn = new JButton ("Insert");
-		
+        proceedInsert = new JButton("Proceed");
+        frame.add (insertBtn);
+        frame.add (proceedInsert);
+        insertBtn.setBounds (35, 130, 120, 30);
+        proceedInsert.setBounds(355, 110, 120, 30);
+		proceedInsert.setVisible(false);
+		insertBtn.addActionListener(this);
+		proceedInsert.addActionListener(this);
+
+
+        //-----------------Delete Button----------------
         deleteBtn = new JButton ("Delete");
+        proceedDelete = new JButton("Proceed");
+        frame.add (deleteBtn);
+        frame.add (proceedDelete);
+        deleteBtn.setBounds (35, 190, 120, 30);
+		proceedDelete.setVisible(false);
+		proceedDelete.addActionListener(this);
+		deleteBtn.addActionListener(this);
+
+        //------------------Display-------------
         dispBtn = new JButton ("Display");
-		proceedInsert = new JButton("Proceed");
-		proceedDelete = new JButton("Proceed");
-		proceedDisplay = new JButton("Proceed");
-		proceedSearch = new JButton("Proceed");
+        proceedDisplay = new JButton("Proceed");
+        frame.add (dispBtn);
+        frame.add (proceedDisplay);
+        display.setBounds (35, 180, 380, 90);
+        dispBtn.setBounds (35, 250, 120, 30);
+        proceedDisplay.setBounds(355, 110, 120, 30);
+		display.setVisible(false);
+		proceedDisplay.setVisible(false);
+		proceedDisplay.addActionListener(this);
+        frame.add (display);
+
+//-------------------Search----------------
+        proceedSearch = new JButton("Proceed");
         searchBtn = new JButton ("Search");
-        logoutBtn = new JButton ("Logout");
+        frame.add (searchBtn);
+        frame.add (proceedSearch);
+        proceedDelete.setBounds(355, 110, 120, 30);
+        proceedSearch.setBounds(355, 110, 120, 30);
+        searchBtn.setBounds (665, 2, 120, 30);
+		proceedSearch.setVisible(false);
+
+
+//-------------------Log Out ---------------
+logoutBtn = new JButton ("Logout");
+proceedSearch.setVisible(false);
+frame.add (logoutBtn);
+logoutBtn.setBounds (350, 450, 120, 30);
+logoutBtn.addActionListener(this);
+
+
 		lcUser = new JButton(user);
 
 		i1 = new ImageIcon("logo.png");
+        frame.setIconImage(i1.getImage());
 
 		jt = new JTable();
 
@@ -73,18 +127,13 @@ public class Dashboard implements ActionListener{
       frame.add (accNo);
 	  frame.add (opName);
       frame.add (balance);
-      frame.add (display);
-      frame.add (insertBtn);
-      frame.add (deleteBtn);
-      frame.add (dispBtn);
-      frame.add (searchBtn);
-	  frame.add (proceedInsert);
-	  frame.add (proceedDelete);
-	  frame.add (proceedDisplay);
-	  frame.add (proceedSearch);
-      frame.add (logoutBtn);
+
+
+
       frame.add (lcUser);
       frame.add(jt);
+
+
 
     //Set Bounce
     lano.setBounds (65, 90, 100, 25);
@@ -92,17 +141,12 @@ public class Dashboard implements ActionListener{
 	opName.setBounds (365, 80, 140, 30);
     accNo.setBounds (155, 90, 100, 25);
     balance.setBounds (155, 130, 100, 25);
-	display.setBounds (35, 180, 380, 90);
-	insertBtn.setBounds (35, 130, 120, 30);
-    deleteBtn.setBounds (35, 190, 120, 30);
-    dispBtn.setBounds (35, 250, 120, 30);
-	proceedInsert.setBounds(355, 110, 120, 30);
-	proceedDelete.setBounds(355, 110, 120, 30);
-	proceedDisplay.setBounds(355, 110, 120, 30);
-	proceedSearch.setBounds(355, 110, 120, 30);
-    searchBtn.setBounds (150, 130, 120, 30);
-    logoutBtn.setBounds (350, 450, 120, 30);
-    lcUser.setBounds (420, 5, 75, 20);
+
+
+ 
+
+
+    lcUser.setBounds (300, 5, 100, 30);
 	
 //Set Method
 	    lano.setVisible(false);
@@ -110,23 +154,16 @@ public class Dashboard implements ActionListener{
 		opName.setVisible(false);
 		accNo.setVisible(false);
 		balance.setVisible(false);
-		display.setVisible(false);
-		proceedInsert.setVisible(false);
-		proceedDelete.setVisible(false);
-		proceedDisplay.setVisible(false);
-		proceedSearch.setVisible(false);
+
 		
+		
+
 		//addActionListener
-		logoutBtn.addActionListener(this);
 		lcUser.addActionListener(this);
-		insertBtn.addActionListener(this);
-		deleteBtn.addActionListener(this);
 		dispBtn.addActionListener(this);
 		searchBtn.addActionListener(this);
-		proceedInsert.addActionListener(this);
-		proceedDelete.addActionListener(this);
-		proceedDisplay.addActionListener(this);
-		proceedSearch.addActionListener(this);
+
+
 		
 	//adjust size and set layout
     //frame.setBounds(350,90,900,650);

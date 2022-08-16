@@ -7,7 +7,7 @@ public class Start {
       //  new OderPage();
       //  new AdminLogin();
       //  new Profile("Test");
-	  // new Dashboard("Test");
+	   new Dashboard("Test");
 
     }
 }
