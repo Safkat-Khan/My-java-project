@@ -1,11 +1,11 @@
 
 public class Start {
     public static void main(String[] args) {
-        //new LogInPage();
-        //new ForgetPass();
-        //new Signup();
-        //new OderPage();
-        new AdminLogin();
+        new LogInPage();
+      //  new ForgetPass();
+      //  new Signup();
+      //  new OderPage();
+      //  new AdminLogin();
 
     }
 }

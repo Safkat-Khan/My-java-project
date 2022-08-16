@@ -68,10 +68,12 @@ Signup(){
         // password field adding.
         pf1 = new JPasswordField();
         pf1.setBounds(280, 220, 150, 22);
+        pf1.setHorizontalAlignment(JTextField.CENTER);
 
         //Comform password field adding.
         cpf1 = new JPasswordField();
         cpf1.setBounds(280, 265, 150, 22);
+        cpf1.setHorizontalAlignment(JTextField.CENTER);
 
         //Email textfield adding.
         tf2 = new JTextField();
@@ -97,14 +99,14 @@ Signup(){
         bkbtn.setFont(new Font("Default",Font.BOLD,13));
 
         // Exit button
-        exbtn = new JButton("Exit");
-        exbtn.setBounds(530, 1, 60, 30);
+        exbtn = new JButton("Exit ✘");
+        exbtn.setBounds(515, 1, 80, 30);
         exbtn.setBackground(Color.orange);
         exbtn.addActionListener(this);
         exbtn.setFont(new Font("Default",Font.BOLD,13));
 
         // Reset button Adding
-        rsetbtn = new JButton("Reset");
+        rsetbtn = new JButton("Reset ⟳");
         rsetbtn.setBounds(320, 470, 100, 40);
         rsetbtn.addActionListener(this);
         rsetbtn.setFont(new Font("Default",Font.BOLD,13));
