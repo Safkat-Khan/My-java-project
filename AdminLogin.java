@@ -13,17 +13,17 @@ public class AdminLogin implements ActionListener
     JButton lgbtn, exbtn;
     JLabel label1, label2, header;
 
-    User un1, un2, un3;
-    User users[];
+    user un1, un2, un3;
+    user users[];
 
 
     AdminLogin() {
 
-        // MUTIPAL USER
-        un1 = new User("Safkat", "123");
-        un2 = new User("ABCD", "456");
-        un3 = new User("abcd", "789");
-        users = new User[6];
+        // MUTIPAL user
+        un1 = new user("Safkat", "123");
+        un2 = new user("ABCD", "456");
+        un3 = new user("abcd", "789");
+        users = new user[6];
         users[0] = un1;
         users[1] = un2;
         users[2] = un3;
@@ -62,7 +62,7 @@ public class AdminLogin implements ActionListener
 
         // user password label
         label2 = new JLabel("Password");
-        label2.setBounds(170, 223, 150, 20);
+        label2.setBounds(170, 222, 150, 20);
         label2.setForeground(Color.black);
         label2.setFont(new Font("Default", Font.BOLD, 17));
 
@@ -113,7 +113,7 @@ public class AdminLogin implements ActionListener
             }
 
             if (e.getSource() == lgbtn) {
-                //new ;
+                new Dashboard("user");
                 frm.setVisible(false);
             }
     

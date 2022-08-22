@@ -1,10 +1,10 @@
 import java.lang.*;
-public class User
+public class user
 {
 	private String username;
 	private String password;
 	
-	public User(String username, String password)
+	public user(String username, String password)
 	{
 		this.username = username;
 		this.password = password;

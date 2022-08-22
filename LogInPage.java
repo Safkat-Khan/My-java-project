@@ -12,16 +12,16 @@ public class LogInPage extends JFrame implements ActionListener {
     ImageIcon img, icon;
     ImageIcon i1;
 
-    User un1, un2, un3;
-    User users[];
+    user un1, un2, un3;
+    user users[];
 
     LogInPage() {
 
         // MUTIPAL USER
-        un1 = new User("Safkat", "123");
-        un2 = new User("ABCD", "456");
-        un3 = new User("abcd", "789");
-        users = new User[6];
+        un1 = new user("Safkat", "123");
+        un2 = new user("ABCD", "456");
+        un3 = new user("abcd", "789");
+        users = new user[6];
         users[0] = un1;
         users[1] = un2;
         users[2] = un3;
@@ -158,7 +158,7 @@ public class LogInPage extends JFrame implements ActionListener {
                     }
                 }
                 if (flag == 1) {
-                    new Dashboard(user);
+                    new UserdashBoard(user);
                     frame.setVisible(false);
                 } else {
                     showMessageDialog(null, "Invalid Username or password!");

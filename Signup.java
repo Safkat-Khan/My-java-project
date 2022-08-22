@@ -14,8 +14,8 @@ public class Signup implements ActionListener{
     JButton svbtn,exbtn,bkbtn,rsetbtn;
     int a, b;
 
-    User nun1, nun2,nun3;
-	User users[];
+    user nun1, nun2,nun3;
+	user users[];
 
 Signup(){
 
@@ -135,7 +135,7 @@ Signup(){
         lab7.setForeground(Color.red);
         lab7.setBackground(Color.decode("#FFD3D3"));
         lab7.setOpaque(true);
-        frm.add(lab7);
+        
 
 //Adding Part
 frm.add(header);
@@ -154,6 +154,7 @@ frm.add(exbtn);
 frm.add(svbtn);
 frm.add(bkbtn);
 frm.add(rsetbtn);
+frm.add(lab7);
 frm.setIconImage(i1.getImage());
 }
 
