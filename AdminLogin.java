@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -11,10 +12,13 @@ public class AdminLogin implements ActionListener
     JPasswordField pf1;
     ImageIcon i1;
     JButton lgbtn, exbtn;
-    JLabel label1, label2, header;
+    JLabel label1, label02, header;
 
     user un1, un2, un3;
     user users[];
+
+    //Store By Array
+    Account[] accounts = new Account[100];
 
 
     AdminLogin() {
@@ -27,6 +31,8 @@ public class AdminLogin implements ActionListener
         users[0] = un1;
         users[1] = un2;
         users[2] = un3;
+
+
 
         // Frame Layout
         frm = new JFrame("Admin Login Page");
@@ -56,15 +62,15 @@ public class AdminLogin implements ActionListener
 
         // user name label
         label1 = new JLabel("Username");
-        label1.setBounds(170, 154, 150, 20);
+        label1.setBounds(170, 150, 150, 20);
         label1.setForeground(Color.black);
         label1.setFont(new Font("Default", Font.BOLD, 17));
 
         // user password label
-        label2 = new JLabel("Password");
-        label2.setBounds(170, 222, 150, 20);
-        label2.setForeground(Color.black);
-        label2.setFont(new Font("Default", Font.BOLD, 17));
+        label02 = new JLabel("Password");
+        label02.setBounds(170, 225, 150, 20);
+        label02.setForeground(Color.black);
+        label02.setFont(new Font("Default", Font.BOLD, 17));
 
         // textfield adding.
         tf1 = new JTextField();
@@ -75,13 +81,14 @@ public class AdminLogin implements ActionListener
         pf1.setBounds(170, 250, 200, 30);
 
         // Adding Part
+        frm.setIconImage(i1.getImage());
         frm.add(tf1);
         frm.add(pf1);
         frm.add(lgbtn);
         frm.add(exbtn);
         frm.add(label1);
-        frm.add(label2);
-        frm.setIconImage(i1.getImage());
+        frm.add(label02);
+
     }
 
         public void actionPerformed(ActionEvent e) {
@@ -98,25 +105,19 @@ public class AdminLogin implements ActionListener
                             if (user.equals(users[i].getUsername()) && pass.equals(users[i].getPassword())) {
                                 flag = 1;
                                 break;
-    
                             }
                         }
                     }
                     if (flag == 1) {
+                        new Dashboard(user);
                         frm.setVisible(false);
                     } else {
-                        showMessageDialog(null, "Invalid Username or password!");
+                        showMessageDialog(null, "Invalid Username or Password!");
                     }
                 } else {
-                    showMessageDialog(null, "Fillup Every Field.");
+                    showMessageDialog(null, "Please Fillup Every Field.");
                 }
             }
-
-            if (e.getSource() == lgbtn) {
-                new Dashboard("user");
-                frm.setVisible(false);
-            }
-    
             else if (e.getSource() == exbtn) {
                 System.exit(0);
             }

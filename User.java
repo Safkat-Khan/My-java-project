@@ -1,4 +1,4 @@
-import java.lang.*;
+
 public class user
 {
 	private String username;

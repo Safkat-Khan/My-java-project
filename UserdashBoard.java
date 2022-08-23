@@ -1,140 +1,105 @@
-import javax.swing.*;  
-import java.awt.event.*;  
+
+import javax.swing.*;
+import java.awt.event.*;
 import java.awt.*;
 
+public class UserdashBoard extends JFrame implements ActionListener{ 
 
+    JFrame frame1;
 
-public class UserdashBoard implements ActionListener {
-    
+    JComboBox combo;
 
-    //frame
-	JFrame frame;
+    JRadioButton rb1, rb2, rb3, rb4;
+    ButtonGroup bg1;
 
-    //Buttons
-	JButton lgBtn,edpfBtn,item1,item2,item3,item4;
+    ImageIcon img;
+    JLabel imgLabel;
 
-    ImageIcon img1,img2,img3,img4,icon;
+    JButton nxbtn,prvbtn,exbtn;
 
-    JLabel label1;
-    ImageIcon i1;
-
-
-    UserdashBoard(String user){
-
-        // frame and title added.
-        frame = new JFrame("UserDashBoard");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-
-        // logo
-        i1 = new ImageIcon("logo.png");
-
-
-
-         // Forget button
-        lgBtn = new JButton("⬅ Logout");
-        lgBtn.setBounds(170, 120, 140, 40);
-        lgBtn.setBackground(Color.orange);
-        lgBtn.addActionListener(this);
-        lgBtn.setFont(new Font("Default", Font.BOLD, 13));
-
-
-        // Forget button
-        edpfBtn = new JButton("Edit Profile");
-        edpfBtn.setBounds(270, 220, 140, 40);
-        edpfBtn.setBackground(Color.orange);
-        edpfBtn.addActionListener(this);
-        edpfBtn.setFont(new Font("Default", Font.BOLD, 13));
-
-        
-        // Forget button
-        item1 = new JButton("item1");
-        item1.setBounds(370, 320, 140, 40);
-        item1.setBackground(Color.orange);
-        item1.addActionListener(this);
-        item1.setFont(new Font("Default", Font.BOLD, 13));
-
-
-        // Forget button
-        item2 = new JButton("item2");
-        item2.setBounds(470, 420, 140, 40);
-        item2.setBackground(Color.orange);
-        item2.addActionListener(this);
-        item2.setFont(new Font("Default", Font.BOLD, 13));
-
-        // Forget button
-        item3 = new JButton("item3");
-        item3.setBounds(570, 520, 140, 40);
-        item3.setBackground(Color.orange);
-        item3.addActionListener(this);
-        item3.setFont(new Font("Default", Font.BOLD, 13));
-
-        // Forget button
-        item4 = new JButton("item4");
-        item4.setBounds(570, 320, 140, 40);
-        item4.setBackground(Color.orange);
-        item4.addActionListener(this);
-        item4.setFont(new Font("Default", Font.BOLD, 13));
-    
-        frame.setLayout(null);
-        frame.setVisible(true);
-        frame.setBounds(350, 90, 900, 650);
-
-
-       // ADDING FRAME
-       frame.add(label1);
-       frame.add(lgBtn);
-       frame.add(edpfBtn);
-       frame.add(item1);
-       frame.add(item2);
-       frame.add(item3);
-       frame.add(item4);
-       frame.add(item1);
-       frame.setIconImage(i1.getImage());
-       
-
+    UserdashBoard() {
+        //Creating Frame
+        frame1 = new JFrame("DashBoard");
+        //StudentCheakBox
+        JCheckBox checkBox1 = new JCheckBox("Pizza");
+        checkBox1.setBounds(50, 50, 100, 30);
+        //Teacher CheakBox
+        JCheckBox checkBox2 = new JCheckBox("Burger");
+        checkBox2.setBounds(50, 80, 100, 30);
+        //admin CheakBox
+        JCheckBox checkBox3 = new JCheckBox("Sandwish");
+        checkBox3.setBounds(50, 110, 100, 30);
+        //ComboBOx
+        String items[] = { "Coke", "Pepsi", "Spite", "7up", "Water" };
+        combo = new JComboBox(items);
+        combo.setBounds(350, 60, 100, 30);
+        //Radio Button
+        rb1 = new JRadioButton("1");
+		rb1.setBounds(275, 25, 100, 20);
+        rb2 = new JRadioButton("2");
+		rb2.setBounds(275, 50, 100, 20);
+        rb3 = new JRadioButton("3");
+		rb3.setBounds(275, 75, 100, 20);
+        rb4 = new JRadioButton("4");
+        rb4.setBounds(275, 100, 100, 20);
+       /*  //Img Added
+        img = new ImageIcon("Logo.png");
+		imgLabel = new JLabel(img);
+		imgLabel.setBounds(170, 100, 250, 250);*/
+        //NextButton
+        nxbtn = new JButton("Next");
+        nxbtn.setBounds(100, 150, 100, 25);
+        nxbtn.setBackground(Color.orange);
+        nxbtn.addActionListener(this);
+        //Previous Button
+        prvbtn=new JButton("Previous");
+        prvbtn.setBounds(250, 150, 100, 25);
+        prvbtn.setBackground(Color.orange);
+        prvbtn.addActionListener(this);
+        //Exit Button
+        exbtn=new JButton("Exit");
+        exbtn.setBounds(500, 0, 100, 25);
+        exbtn.setBackground(Color.orange);
+        exbtn.addActionListener(this);
+        //Button Group
+        bg1 = new ButtonGroup();
+		bg1.add(rb1);
+		bg1.add(rb2);
+		bg1.add(rb3);
+        bg1.add(rb4);
+		//ALL Component Added
+        frame1.add(checkBox1);
+        frame1.add(checkBox2);
+        frame1.add(checkBox3);
+        frame1.add(combo);
+        frame1.add(rb1);
+        frame1.add(rb2);
+        frame1.add(rb3);
+        frame1.add(rb4);
+        frame1.add(nxbtn);
+        frame1.add(exbtn);
+        frame1.add(prvbtn);
+      //  frame1.add(imgLabel);
+       // frame1.setSize(500, 500);
+        frame1.setLayout(null);
+        frame1.setVisible(true);
+        frame1.setBounds(450,  80, 600, 650);
     }
-
-
-        // Action Part
+    //Button Action Perform
         public void actionPerformed(ActionEvent e) {
-
-            
-        if (e.getSource() == lgBtn) {
-            new LogInPage();
-            frame.setVisible(false);
-        }
-
-        
-        if (e.getSource() == edpfBtn) {
-            new Editprofile();
-            frame.setVisible(false);
-        }
-
-        
-        if (e.getSource() == item1) {
-            new item1();
-            frame.setVisible(false);
-        }
-
-        
-        if (e.getSource() == item2) {
-            //new item2();
-            frame.setVisible(false);
-        }
-
-        
-        if (e.getSource() == item3) {
-            //new item3();
-            frame.setVisible(false);
-        }
-
-        
-        if (e.getSource() == item4) {
-           // new item4();
-            frame.setVisible(false);
-        }
-
-
-        }
-}
+        if(e.getSource()==prvbtn)
+		{  
+			new LogInPage();
+			frame1.setVisible(false);
+        }  
+            if(e.getSource()==nxbtn)
+            {  
+              //  new ();
+              //  frame1.setVisible(false);
+            } 
+                if(e.getSource()==exbtn)
+                {
+                    System.exit(0);
+                }
+                }
+    }
