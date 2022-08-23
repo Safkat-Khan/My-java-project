@@ -117,9 +117,9 @@ public class Dashboard implements ActionListener {
 		searchBtn.setForeground(Color.black);
 		frame.add(searchBtn);
 		frame.add(proceedSearch);
-		proceedSearch.setBounds(355, 110, 120, 30);
+		proceedSearch.setBounds(390, 110, 120, 30);
 		proceedSearch.setBackground(Color.decode("#5b7ccf"));
-		searchBtn.setBounds(555, 170, 120, 30);
+		searchBtn.setBounds(655, 0, 120, 30);
 		proceedSearch.setVisible(false);
 
 		// -------------------Log Out ---------------

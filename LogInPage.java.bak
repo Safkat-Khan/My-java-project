@@ -22,7 +22,7 @@ public class LogInPage extends JFrame implements ActionListener {
         un1 = new user("Safkat", "123");
         un2 = new user("Aishee", "456");
         un3 = new user("Adnan", "789");
-        users = new user[6];
+        users = new user[];
         users[0] = un1;
         users[1] = un2;
         users[2] = un3;
