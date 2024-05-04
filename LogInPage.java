@@ -71,14 +71,14 @@ public class LogInPage extends JFrame implements ActionListener {
         lgbtn.setFont(new Font("Default", Font.BOLD, 13));
 
         // Forget button
-        fpbtn = new JButton("Forget Pass 🔐");
+        fpbtn = new JButton("Forget Password");
         fpbtn.setBounds(570, 320, 140, 40);
         fpbtn.setBackground(Color.orange);
         fpbtn.addActionListener(this);
         fpbtn.setFont(new Font("Default", Font.BOLD, 13));
 
         // Signup button
-        sgbtn = new JButton("Sign Up ✎");
+        sgbtn = new JButton("Sign Up ");
         sgbtn.setBounds(735, 320, 120, 40);
         sgbtn.setBackground(Color.orange);
         //sgbtn.setBackground(Color.decode("#2E75B6"));
@@ -86,8 +86,8 @@ public class LogInPage extends JFrame implements ActionListener {
         sgbtn.setFont(new Font("Default", Font.BOLD, 13));
 
         // Exit button
-        exbtn = new JButton("Exit ✘");
-        exbtn.setBounds(815, 3, 80, 30);
+        exbtn = new JButton("Exit");
+        exbtn.setBounds(810, 1, 80, 30);
        // exbtn.setForeground(Color.red);
        // exbtn.setBackground(Color.decode("#ff4122"));
         exbtn.setForeground(Color.black);
@@ -95,7 +95,7 @@ public class LogInPage extends JFrame implements ActionListener {
         exbtn.setFont(new Font("Default", Font.BOLD, 13));
 
         //Admin Button
-        adminbtn = new JButton("Log in As Admin 👤");
+        adminbtn = new JButton("Log in As Admin");
         adminbtn.setBounds(640, 440, 160, 40);
         adminbtn.setBackground(Color.gray);
         adminbtn.setForeground(Color.black);
@@ -165,7 +165,7 @@ public class LogInPage extends JFrame implements ActionListener {
                     showMessageDialog(null, "Invalid Username or password!");
                 }
             } else {
-                showMessageDialog(null, "Fillup Every Field.");
+                showMessageDialog(null, " Please Fillup every field.");
             }
 
         }

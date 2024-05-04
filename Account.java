@@ -1,5 +1,4 @@
 
-import java.lang.*;
 public class Account
 {
 	private String accNo;

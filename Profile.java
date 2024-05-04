@@ -2,7 +2,6 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class Profile implements ActionListener {
     private JButton prvBtn;
@@ -21,15 +20,16 @@ public class Profile implements ActionListener {
         frame.setResizable(false);
 
         // construct components
-        prvBtn = new JButton("← Previous");
+        prvBtn = new JButton("Previous");
         prvBtn.setBackground(Color.decode("#fcf51e"));
+        prvBtn.addActionListener(this);
         prvBtn.setForeground(Color.BLACK);
 
-        logoutBtn = new JButton("Logout 🚪");
+        logoutBtn = new JButton("Logout ");
         logoutBtn.setBackground(Color.decode("#d14434"));
         logoutBtn.setForeground(Color.BLACK);
 
-        updBtn = new JButton("Update ⇯");
+        updBtn = new JButton("Update Profile");
         updBtn.setBackground(Color.decode("#29a3cc"));
 
         uName = new JLabel("Username:");

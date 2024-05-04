@@ -70,12 +70,12 @@ Signup(){
         // password field adding.
         pf1 = new JPasswordField();
         pf1.setBounds(280, 220, 150, 22);
-        pf1.setHorizontalAlignment(JTextField.CENTER);
+       // pf1.setHorizontalAlignment(JTextField.CENTER);
 
         //Comform password field adding.
         cpf1 = new JPasswordField();
         cpf1.setBounds(280, 265, 150, 22);
-        cpf1.setHorizontalAlignment(JTextField.CENTER);
+      //  cpf1.setHorizontalAlignment(JTextField.CENTER);
 
         //Email textfield adding.
         tf2 = new JTextField();
@@ -88,28 +88,28 @@ Signup(){
 
        // Save button Adding
         svbtn = new JButton("Save");
-        svbtn.setBounds(250, 530, 100, 40);
+        svbtn.setBounds(300, 470, 100, 40);
         svbtn.setBackground(Color.orange);
         svbtn.addActionListener(this);
         svbtn.setFont(new Font("Default",Font.BOLD,13));
 
        // Back button
         bkbtn = new JButton("Back");
-        bkbtn.setBounds(129, 470, 100, 40);
+        bkbtn.setBounds(1, 1, 80, 30);
         bkbtn.setForeground(Color.blue);
         bkbtn.addActionListener(this);
         bkbtn.setFont(new Font("Default",Font.BOLD,13));
 
         // Exit button
-        exbtn = new JButton("Exit ✘");
-        exbtn.setBounds(515, 1, 80, 30);
+        exbtn = new JButton("Exit");
+        exbtn.setBounds(510, 1, 80, 30);
         exbtn.setBackground(Color.orange);
         exbtn.addActionListener(this);
         exbtn.setFont(new Font("Default",Font.BOLD,13));
 
         // Reset button Adding
-        rsetbtn = new JButton("Reset ⟳");
-        rsetbtn.setBounds(320, 470, 100, 40);
+        rsetbtn = new JButton("Reset");
+        rsetbtn.setBounds(150, 470, 100, 40);
         rsetbtn.addActionListener(this);
         rsetbtn.setFont(new Font("Default",Font.BOLD,13));
 
@@ -167,7 +167,7 @@ frm.setIconImage(i1.getImage());
         String captcha = tf5.getText();
         if (e.getSource() == svbtn) {
 
-    int flag = 0;
+            int flag = 0;
 
             if(user.isEmpty()==false && pass.isEmpty()==false && email.isEmpty()==false && captcha.isEmpty()==false)
 			{
