@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
-import java.util.*;
-import static javax.swing.JOptionPane.showMessageDialog;
 
 public class ForgetPass implements ActionListener{
     JLabel l;
