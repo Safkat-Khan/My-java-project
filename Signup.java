@@ -162,7 +162,7 @@ frm.setIconImage(i1.getImage());
     // Action Part
     public void actionPerformed(ActionEvent e) {
         String user = tf1.getText().toLowerCase();
-        String pass = pf1.getText();
+        String pass = pf1.getText().toLowerCase();
         String email = tf2.getText();
         String captcha = tf5.getText();
         if (e.getSource() == svbtn) {
