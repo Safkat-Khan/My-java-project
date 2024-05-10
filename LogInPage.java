@@ -20,8 +20,10 @@ public class LogInPage extends JFrame implements ActionListener {
 
         // MUTIPAL USER
         un1 = new user("Safkat", "123");
-        un2 = new user("Aishee", "456");
-        un3 = new user("Adnan", "789");
+        un2 = new user("abc", "456");
+        un3 = new user("xyz", "789");
+
+
         users = new user[6];
         users[0] = un1;
         users[1] = un2;
@@ -62,7 +64,7 @@ public class LogInPage extends JFrame implements ActionListener {
         pf1.setBounds(680, 185, 150, 30);
 
         // Log in button
-        lgbtn = new JButton("Login ➤");
+        lgbtn = new JButton("Login ");
         lgbtn.setBounds(670, 250, 90, 40);
         lgbtn.setForeground(Color.WHITE);
         //lgbtn.setBackground(Color.BLACK);

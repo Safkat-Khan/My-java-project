@@ -45,7 +45,7 @@ public class AdminLogin implements ActionListener
 
         // Log in button
         lgbtn = new JButton("Login");
-        lgbtn.setBounds(170, 320, 200, 30);
+        lgbtn.setBounds(170, 330, 200, 30);
         lgbtn.setForeground(Color.white);
         lgbtn.setBackground(Color.black);
         lgbtn.addActionListener(this);
@@ -53,7 +53,7 @@ public class AdminLogin implements ActionListener
 
         // Exit button
         exbtn = new JButton("Exit");
-        exbtn.setBounds(513, 1, 80, 30);
+        exbtn.setBounds(513, 0, 80, 30);
         exbtn.setBackground(Color.orange);
         exbtn.setForeground(Color.black);
         exbtn.addActionListener(this);
@@ -68,13 +68,13 @@ public class AdminLogin implements ActionListener
 
         // user name label
         label1 = new JLabel("Username");
-        label1.setBounds(170, 150, 150, 20);
+        label1.setBounds(170, 140, 150, 20);
         label1.setForeground(Color.black);
         label1.setFont(new Font("Default", Font.BOLD, 17));
 
         // user password label
         label02 = new JLabel("Password");
-        label02.setBounds(170, 230, 150, 30);
+        label02.setBounds(170, 230, 150, 20);
         label02.setForeground(Color.black);
         label02.setFont(new Font("Default", Font.BOLD, 17));
 
@@ -84,7 +84,7 @@ public class AdminLogin implements ActionListener
 
         // password field adding.
         pf1 = new JPasswordField();
-        pf1.setBounds(170, 260, 200, 30);
+        pf1.setBounds(170, 270, 200, 30);
 
         // Adding Part
         frm.setIconImage(i1.getImage());

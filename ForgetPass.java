@@ -2,22 +2,26 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class ForgetPass implements ActionListener{
-    JLabel l;
-    ImageIcon i1;
+    public class ForgetPass implements ActionListener {
+    JFrame fp;
+    JLabel lbl;
+    ImageIcon img;
     JLabel label1,label2,label3,label4,label5,header,imgLabel1,label6,lab7;
     JButton svbtn,bcbtn;
     JTextField tf1,tf2,tf3;
-    JFrame fp;
+  
 
 
     ForgetPass(){  
         fp = new JFrame("Forget Password"); 
-		l = new JLabel("Forget Password");
-        l.setFont(new Font("Default",Font.BOLD,19));
+		lbl = new JLabel("Forget Password");
+        lbl.setFont(new Font("Default",Font.BOLD,19));
         
-		l.setBounds(50,50,350,40); 
-		fp.add(l);
+		lbl.setBounds(50,50,350,40); 
+		fp.add(lbl);
+
+        // logo
+        img = new ImageIcon("logo.png");
 
         //Frame Size
         fp.setSize(400,400);  
@@ -42,16 +46,16 @@ public class ForgetPass implements ActionListener{
 
         // User Email InputField
         tf1 = new JTextField();
-        tf1.setBounds(300, 160, 150, 22);
+        tf1.setBounds(300, 160, 150, 25);
 
 
         // User Password InputField
         tf2 = new JTextField();
-        tf2.setBounds(300, 215, 150, 22);
+        tf2.setBounds(300, 215, 150, 25);
 
         // User Password Comform InputField
         tf3 = new JTextField();
-        tf3.setBounds(300, 265, 150, 22);
+        tf3.setBounds(300, 265, 150, 25);
 
 
         //Save Button 
@@ -77,6 +81,8 @@ public class ForgetPass implements ActionListener{
         fp.add(tf3);
         fp.add(svbtn);
         fp.add(bcbtn);
+        fp.add(lbl); 
+        fp.setIconImage(img.getImage());
 
     }
         public void actionPerformed(ActionEvent e) {
