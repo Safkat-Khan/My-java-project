@@ -19,9 +19,9 @@ public class LogInPage extends JFrame implements ActionListener {
     LogInPage() {
 
         // MUTIPAL USER
-        un1 = new user("Safkat", "123");
-        un2 = new user("abc", "456");
-        un3 = new user("xyz", "789");
+        un1 = new user("abcd", "123");
+        un2 = new user("pqrs", "456");
+        un3 = new user("wxyz", "789");
 
 
         users = new user[6];

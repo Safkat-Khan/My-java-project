@@ -33,7 +33,7 @@ Signup(){
 
         //Header
         header = new JLabel("Sign Up");
-        header.setBounds(80, 50, 300, 100);
+        header.setBounds(80, 50, 200, 100);
         header.setForeground(Color.black);
         header.setFont(new Font("Default",Font.BOLD,27));
 
