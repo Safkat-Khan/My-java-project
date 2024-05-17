@@ -10,8 +10,9 @@ public class Dashboard implements ActionListener {
 	JFrame frame;
 
 	//------ Buttons--------
-	JButton insertBtn, deleteBtn, dispBtn, searchBtn, logoutBtn, lcUser, proceedInsert, proceedDelete, proceedDisplay,
-			proceedSearch;
+	JButton insertBtn, deleteBtn, dispBtn,
+	searchBtn, logoutBtn, lcUser, proceedInsert,
+	proceedDelete, proceedDisplay, proceedSearch;
 
 	// --------labels---------
 	JLabel lano, lbalance, opName;
@@ -32,17 +33,14 @@ public class Dashboard implements ActionListener {
 	Account[] accounts = new Account[100];
 
 	// -------------Parameter Constractor--------------------------
-
 	Dashboard(String user) {
 		// create frame
 		frame = new JFrame("Dashboard");
 
 		//---------------- adjust size and set layout----------------------
-		// frame.setBounds(350,90,900,650);
 		frame.setBounds(10, 10, 800, 650);
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.setResizable(false);
 		frame.setVisible(true);
 
@@ -63,72 +61,68 @@ public class Dashboard implements ActionListener {
 
 		//------------ Insert Button----------------
 		insertBtn = new JButton("Include");
-		proceedInsert = new JButton("Update");
-		frame.add(insertBtn);
-		frame.add(proceedInsert);
 		insertBtn.setBounds(35, 130, 120, 30);
 		insertBtn.setBackground(Color.decode("#f5f5f5"));
 		insertBtn.setForeground(Color.decode("#030202"));
+		insertBtn.addActionListener(this);
 
+		//---------------Upadate button---------
+		proceedInsert = new JButton("Update");
 		proceedInsert.setBounds(555, 170, 120, 30);
 		proceedInsert.setBackground(Color.decode("#5b7ccf"));
 		proceedInsert.setForeground(Color.white);
 		proceedInsert.setVisible(false);
-		insertBtn.addActionListener(this);
 		proceedInsert.addActionListener(this);
 
-		// -----------------Delete Button----------------
+		//----------------Delete Button----------------
 		deleteBtn = new JButton("Delete");
-		proceedDelete = new JButton("Update");
-		frame.add(deleteBtn);
-		frame.add(proceedDelete);
 		deleteBtn.setBounds(35, 190, 120, 30);
 		deleteBtn.setBackground(Color.WHITE);
 		deleteBtn.setForeground(Color.BLACK);
+		deleteBtn.addActionListener(this);
+
+		//---------Delete operation---------
 		proceedDelete.setVisible(false);
 		proceedDelete.addActionListener(this);
 		proceedDelete.setBackground(Color.decode("#5b7ccf"));
 		proceedDelete.setBounds(519, 150, 120, 30);
 		proceedDelete.setForeground(Color.white);
-		deleteBtn.addActionListener(this);
 
-		// ------------------Display-------------
+		// ------------Display-------------
 		dispBtn = new JButton("Display");
-		proceedDisplay = new JButton("Show");
-		proceedDisplay.setBounds(555, 170, 120, 30);
-		frame.add(dispBtn);
-		frame.add(proceedDisplay);
 		display.setBounds(270, 300, 280, 35);
 		dispBtn.setBounds(35, 250, 120, 30);
 		dispBtn.setBackground(Color.WHITE);
 		dispBtn.setForeground(Color.BLACK);
+		display.setVisible(false);
+
+		//--------------Display oprertion--------
+		proceedDisplay = new JButton("Show");
+		proceedDisplay.setBounds(555, 170, 120, 30);
 		proceedDisplay.setBounds(350, 200, 120, 30);
 		proceedDisplay.setForeground(Color.white);
 		proceedDisplay.setBackground(Color.decode("#5b7ccf"));
-		display.setVisible(false);
 		proceedDisplay.setVisible(false);
 		proceedDisplay.addActionListener(this);
-		frame.add(display);
 
-		// -------------------Search----------------
-		proceedSearch = new JButton("Find");
+		// ----------------Search----------------
 		searchBtn = new JButton("🔍 Search");
+		searchBtn.setBounds(655, 0, 120, 30);
 		searchBtn.setBackground(Color.decode("#3399ff"));
 		searchBtn.setForeground(Color.black);
-		frame.add(searchBtn);
-		frame.add(proceedSearch);
+
+		//-------------Search Operation------------
+		proceedSearch = new JButton("Find");
 		proceedSearch.setBounds(390, 110, 120, 30);
 		proceedSearch.setBackground(Color.decode("#5b7ccf"));
-		searchBtn.setBounds(655, 0, 120, 30);
 		proceedSearch.setVisible(false);
 
 		// -------------------Log Out ---------------
-		logoutBtn = new JButton("⬅ Logout");
-		frame.add(logoutBtn);
+		logoutBtn = new JButton(" Logout");
 		logoutBtn.setBounds(350, 450, 120, 30);
-		logoutBtn.addActionListener(this);
 		logoutBtn.setBackground(Color.decode("#f53131"));
 		logoutBtn.setForeground(Color.black);
+		logoutBtn.addActionListener(this);
 
 		//---------- User Name Showing Button----------
 		lcUser = new JButton(user);
@@ -136,22 +130,37 @@ public class Dashboard implements ActionListener {
 		//------- table--------------
 		jt = new JTable();
 
-		// ---------add components------------
+		// ---------add components in the frame------------
 		frame.add(lano);
 		frame.add(lbalance);
 		frame.add(accNo);
 		frame.add(opName);
 		frame.add(balance);
-
+		frame.add(insertBtn);
+		frame.add(proceedInsert);
 		frame.add(lcUser);
 		frame.add(jt);
+		frame.add(dispBtn);
+		frame.add(proceedDisplay);
+		frame.add(deleteBtn);
+		frame.add(proceedDelete);
+		frame.add(display);
+		frame.add(searchBtn);
+		frame.add(proceedSearch);
+		frame.add(logoutBtn);
+
+
 
 		//---------- Set Bounce----------
+
+		//--------Product Name-------------
 		lano.setBounds(200, 150, 200, 25);
 		lano.setFont(new Font("Default", Font.BOLD, 15));
+
+		//-----------product price--------
 		lbalance.setBounds(200, 200, 100, 25);
 		lbalance.setFont(new Font("Default", Font.BOLD, 15));
-		// opName.setBounds (500, 80, 140, 30);
+
 		accNo.setBounds(320, 150, 200, 30);
 		balance.setBounds(320, 200, 200, 30);
 
@@ -351,17 +360,12 @@ public class Dashboard implements ActionListener {
 
 				if (a != null) {
 					String column[] = { "Product No.", "Price" };
-					String data[][] = { { "Product No.", "Price (taka)" }, { a.getAccNo(), a.balance() } };// NOT the
-																											// recommended
-																											// way
+					String data[][] = { { "Product No.", "Price (taka)" }, { a.getAccNo(), a.balance() } };
 					DefaultTableModel model = new DefaultTableModel(data, column);
-
 					jt.setModel(model);
 					jt.setFont(new Font("Default", Font.BOLD, 17));
 					jt.setBounds(200, 300, 380, 90);
-
 					frame.add(jt);
-
 					jt.setVisible(true);
 					display.setVisible(false);
 				} else {

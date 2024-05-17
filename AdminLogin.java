@@ -23,15 +23,12 @@ public class AdminLogin implements ActionListener
     AdminLogin() {
 
         // MUTIPAL user
-        un1 = new user("Safkat", "123");
-        un2 = new user("ABCD", "456");
-        un3 = new user("abcd", "789");
+        un1 = new user("admin", "123");
+        un2 = new user("ABC", "456");
+
         users = new user[6];
         users[0] = un1;
         users[1] = un2;
-        users[2] = un3;
-
-
 
         // Frame Layout
         frm = new JFrame("Admin Login");
@@ -97,7 +94,7 @@ public class AdminLogin implements ActionListener
         frm.add(label02);
 
     }
-
+    //-----------Action On button-----------------
         public void actionPerformed(ActionEvent e) {
 
             if (e.getSource() == lgbtn) {
@@ -133,6 +130,5 @@ public class AdminLogin implements ActionListener
                 new LogInPage();
                 frm.setVisible(false);
             }
+        }
     }
-
-}

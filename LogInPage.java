@@ -13,21 +13,26 @@ public class LogInPage extends JFrame implements ActionListener {
     ImageIcon img, icon;
     ImageIcon i1;
 
-    user un1, un2, un3;
+    user un1, un2;
     user users[];
+
+    user sl1;
+    user selsman[];
 
     LogInPage() {
 
         // MUTIPAL USER
-        un1 = new user("abcd", "123");
-        un2 = new user("pqrs", "456");
-        un3 = new user("wxyz", "789");
-
+        un1 = new user("buyer", "123");
+        un2 = new user("user", "456");
 
         users = new user[6];
         users[0] = un1;
         users[1] = un2;
-        users[2] = un3;
+
+        sl1= new user("seller", "123");
+
+        selsman =new user[3];
+        selsman[0] = sl1; 
 
         // frame and title added.
         frame = new JFrame("LoginPage");
@@ -67,7 +72,6 @@ public class LogInPage extends JFrame implements ActionListener {
         lgbtn = new JButton("Login ");
         lgbtn.setBounds(670, 250, 90, 40);
         lgbtn.setForeground(Color.WHITE);
-        //lgbtn.setBackground(Color.BLACK);
         lgbtn.setBackground(Color.decode("#2E75B6"));
         lgbtn.addActionListener(this);
         lgbtn.setFont(new Font("Default", Font.BOLD, 13));
@@ -83,15 +87,12 @@ public class LogInPage extends JFrame implements ActionListener {
         sgbtn = new JButton("Sign Up ");
         sgbtn.setBounds(735, 320, 120, 40);
         sgbtn.setBackground(Color.orange);
-        //sgbtn.setBackground(Color.decode("#2E75B6"));
         sgbtn.addActionListener(this);
         sgbtn.setFont(new Font("Default", Font.BOLD, 13));
 
         // Exit button
         exbtn = new JButton("Exit");
         exbtn.setBounds(810, 1, 80, 30);
-       // exbtn.setForeground(Color.red);
-       // exbtn.setBackground(Color.decode("#ff4122"));
         exbtn.setForeground(Color.black);
         exbtn.addActionListener(this);
         exbtn.setFont(new Font("Default", Font.BOLD, 13));
@@ -150,20 +151,31 @@ public class LogInPage extends JFrame implements ActionListener {
 
             int flag = 0;
 
+
             if (user.isEmpty() == false && pass.isEmpty() == false) {
                 for (int i = 0; i < users.length; i++) {
                     if (users[i] != null) {
                         if (user.equals(users[i].getUsername()) && pass.equals(users[i].getPassword())) {
                             flag = 1;
                             break;
-
+                        }
+                        else if (user.equals(selsman[i].getUsername()) && pass.equals(selsman[i].getPassword())) {
+                            flag = 2;
+                            break;
                         }
                     }
                 }
                 if (flag == 1) {
                     new UserdashBoard();
                     frame.setVisible(false);
-                } else {
+                    this.setVisible(false);
+                } 
+                else if (flag == 2) {
+                    new SellerDashboard();
+                    frame.setVisible(false);
+                    this.setVisible(false);
+                } 
+                else {
                     showMessageDialog(null, "Invalid Username or password!");
                 }
             } else {
@@ -192,7 +204,4 @@ public class LogInPage extends JFrame implements ActionListener {
         }
 
     }
-
-
-
 }

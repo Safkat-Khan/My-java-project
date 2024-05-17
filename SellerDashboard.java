@@ -1,8 +1,6 @@
-
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
-import javax.swing.table.*;
 
 public class SellerDashboard implements ActionListener {
 
@@ -10,8 +8,9 @@ public class SellerDashboard implements ActionListener {
 	JFrame frame;
 
 	//------ Buttons--------
-	JButton insertBtn, deleteBtn, dispBtn, searchBtn, logoutBtn, lcUser, proceedInsert, proceedDelete, proceedDisplay,
-			proceedSearch;
+	JButton insertBtn, deleteBtn, dispBtn, 
+	searchBtn, logoutBtn, lcUser, proceedInsert,
+	proceedDelete, proceedDisplay,proceedSearch;
 
 	// --------labels---------
 	JLabel lano, lbalance, opName;
@@ -31,20 +30,23 @@ public class SellerDashboard implements ActionListener {
 	// ------Accounts------
 	Account[] accounts = new Account[100];
 
+
 	// -------------Parameter Constractor--------------------------
 
 	SellerDashboard() {
+		
 		// create frame
 		frame = new JFrame("Seller Dashboard");
 
 		//---------------- adjust size and set layout----------------------
-		// frame.setBounds(350,90,900,650);
-		frame.setBounds(250, 00, 800, 650);
+		frame.setBounds(350, 90, 900, 650);
 		frame.setLayout(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		frame.setResizable(false);
 		frame.setVisible(true);
+
+		//Icon ADDED
+        i1 = new ImageIcon("logo.png");
 
 		//------- construct components-------------
 		lano = new JLabel("Product Name");
@@ -56,114 +58,77 @@ public class SellerDashboard implements ActionListener {
 		opName = new JLabel("Default!");
 		opName.setForeground(Color.BLACK);
 
-		accNo = new JTextField(5);
-		balance = new JTextField(5);
+		accNo = new JTextField(10);
+		balance = new JTextField(10);
 
-		display = new JTextArea(5, 5);
+		display = new JTextArea(10,10);
 
-		//------------ Insert Button----------------
-		insertBtn = new JButton("Post Product");
-		proceedInsert = new JButton("Add");
+		//------------Insert Button----------------
+		insertBtn = new JButton("Add Product");
+		proceedInsert = new JButton("Add ");
 		frame.add(insertBtn);
 		frame.add(proceedInsert);
-		insertBtn.setBounds(120, 70, 120, 30);
+		insertBtn.setBounds(250, 70, 120, 30);
 		insertBtn.setBackground(Color.decode("#f5f5f5"));
 		insertBtn.setForeground(Color.decode("#030202"));
+		insertBtn.addActionListener(this);
 
-		proceedInsert.setBounds(555, 170, 120, 30);
+		//------------------------Add opertion button--------------------
+		proceedInsert.setBounds(350, 300, 120, 30);
 		proceedInsert.setBackground(Color.decode("#5b7ccf"));
 		proceedInsert.setForeground(Color.white);
 		proceedInsert.setVisible(false);
-		insertBtn.addActionListener(this);
 		proceedInsert.addActionListener(this);
 
 		// -----------------Delete Button----------------
 		deleteBtn = new JButton("Delete Product");
-		proceedDelete = new JButton("Delete");
-		frame.add(deleteBtn);
-		frame.add(proceedDelete);
-		deleteBtn.setBounds(300, 70, 120, 30);
+		deleteBtn.setBounds(450, 70, 120, 30);
 		deleteBtn.setBackground(Color.WHITE);
 		deleteBtn.setForeground(Color.BLACK);
+		deleteBtn.addActionListener(this);
+
+		//-----------------Delet Operation button------------
+		proceedDelete = new JButton("Delete");
 		proceedDelete.setVisible(false);
 		proceedDelete.addActionListener(this);
 		proceedDelete.setBackground(Color.decode("#5b7ccf"));
-		proceedDelete.setBounds(555, 170, 120, 30);
+		proceedDelete.setBounds(350, 300, 120, 30);
 		proceedDelete.setForeground(Color.white);
-		deleteBtn.addActionListener(this);
 
 		// ------------------Display-------------
-		dispBtn = new JButton("Show Product");
-		proceedDisplay = new JButton("Show");
-		proceedDisplay.setBounds(555, 170, 120, 30);
-		frame.add(dispBtn);
-		frame.add(proceedDisplay);
-		display.setBounds(70, 300, 280, 35);
-		dispBtn.setBounds(500, 70, 120, 30);
-		dispBtn.setBackground(Color.WHITE);
-		dispBtn.setForeground(Color.BLACK);
-		proceedDisplay.setBounds(350, 200, 120, 30);
-		proceedDisplay.setForeground(Color.white);
-		proceedDisplay.setBackground(Color.decode("#5b7ccf"));
+		display.setBounds(300, 400, 250, 30);
 		display.setVisible(false);
-		proceedDisplay.setVisible(false);
-		proceedDisplay.addActionListener(this);
-		frame.add(display);
-
-        /* 
-		// -------------------Search----------------
-		proceedSearch = new JButton("Find");
-		searchBtn = new JButton("🔍 Search");
-		searchBtn.setBackground(Color.decode("#3399ff"));
-		searchBtn.setForeground(Color.black);
-		frame.add(searchBtn);
-		frame.add(proceedSearch);
-		proceedSearch.setBounds(390, 110, 120, 30);
-		proceedSearch.setBackground(Color.decode("#5b7ccf"));
-		searchBtn.setBounds(655, 0, 120, 30);
-		proceedSearch.setVisible(false);
-*/
-
 
 		// -------------------Log Out ---------------
-		logoutBtn = new JButton("⬅ Logout");
-		frame.add(logoutBtn);
-		logoutBtn.setBounds(350, 450, 120, 30);
+		logoutBtn = new JButton(" Logout");
+		logoutBtn.setBounds(350, 500, 120, 30);
 		logoutBtn.addActionListener(this);
 		logoutBtn.setBackground(Color.decode("#f53131"));
 		logoutBtn.setForeground(Color.black);
 
-		//---------- User Name Showing Button----------
-		//lcUser = new JButton(user);
-
 		//------- table--------------
 		jt = new JTable();
 
-		// ---------add components------------
+		//--------add components------------
 		frame.add(lano);
 		frame.add(lbalance);
 		frame.add(accNo);
 		frame.add(opName);
 		frame.add(balance);
-
-		//frame.add(lcUser);
+		frame.add(deleteBtn);
+		frame.add(proceedDelete);
+		frame.add(display);
+		frame.add(logoutBtn);
 		frame.add(jt);
+        frame.setIconImage(i1.getImage());
 
 		//---------- Set Bounce----------
-		lano.setBounds(200, 150, 200, 25);
+		lano.setBounds(200, 200, 150, 25);
 		lano.setFont(new Font("Default", Font.BOLD, 15));
-		lbalance.setBounds(200, 200, 100, 25);
+		lbalance.setBounds(200, 250, 100, 25);
 		lbalance.setFont(new Font("Default", Font.BOLD, 15));
-		// opName.setBounds (500, 80, 140, 30);
-		accNo.setBounds(320, 150, 200, 30);
-		balance.setBounds(320, 200, 200, 30);
-
-        /* 
-		// -------User name showing Button----------
-		lcUser.setBounds(300, 5, 100, 30);
-		lcUser.setBackground(Color.WHITE);
-		lcUser.setForeground(Color.BLACK);
-         */
+		accNo.setBounds(320, 200, 200, 30);
+		balance.setBounds(320, 250, 200, 30);
 
 		// Set Method
 		lano.setVisible(false);
@@ -174,7 +139,6 @@ public class SellerDashboard implements ActionListener {
 
 		// addActionListener
 		lcUser.addActionListener(this);
-		dispBtn.addActionListener(this);
 		searchBtn.addActionListener(this);
 
 		// adjust size and set layout
@@ -184,10 +148,9 @@ public class SellerDashboard implements ActionListener {
 		frame.setIconImage(i1.getImage());
 		frame.setResizable(false);
 		frame.setVisible(true);
-
 	}
 
-	// Accunt adding array
+	//---------------Accunt adding array-------------
 	public void addAccount(Account a) {
 		int count = 0;
 
@@ -199,15 +162,15 @@ public class SellerDashboard implements ActionListener {
 			}
 		}
 		if (count == 0) {
-			display.setText("Product can not be added.");
-			display.setFont(new Font("Default", Font.BOLD, 17));
+			display.setText(" Product can not added.");
+			display.setFont(new Font("Default", Font.BOLD, 20));
 		} else {
-			display.setText("Product added successfully.");
+			display.setText(" Product added. ");
 			display.setFont(new Font("Default", Font.BOLD, 20));
 		}
 	}
 
-	//searching an account
+	//searching a product
 	public Account searchAccount(String accNo)
 	{
 		Account a = null;
@@ -222,7 +185,7 @@ public class SellerDashboard implements ActionListener {
 		return a;
 	}
 
-	//-*--------deleting an account------------
+	//-*--------deleting a product------------
 	public boolean deleteAccount(String accNo)
 	{
 		boolean test = false;
@@ -244,7 +207,7 @@ public class SellerDashboard implements ActionListener {
 		if (e.getSource() == logoutBtn) {
 			new LogInPage();
 			frame.setVisible(false);
-			// System.exit(0);
+			System.exit(0);
 		} else if (e.getSource() == lcUser) {
 			String user = lcUser.getText();
 			new Profile(user);
@@ -262,7 +225,6 @@ public class SellerDashboard implements ActionListener {
 			display.setVisible(true);
 			proceedInsert.setVisible(true);
 			proceedDelete.setVisible(false);
-			proceedDisplay.setVisible(false);
 			proceedSearch.setVisible(false);
 		} 
 		
@@ -275,44 +237,12 @@ public class SellerDashboard implements ActionListener {
 			display.setText(null);
 			proceedInsert.setVisible(false);
 			proceedDelete.setVisible(true);
-			proceedDisplay.setVisible(false);
 			proceedSearch.setVisible(false);
-
 			opName.setText("Operation: Delete");
 			opName.setVisible(true);
 			lbalance.setVisible(false);
 			balance.setVisible(false);
-		} else if (e.getSource() == dispBtn) {
-			lano.setVisible(true);
-			accNo.setVisible(true);
-			accNo.setText(null);
-			display.setVisible(true);
-			display.setText(null);
-			proceedInsert.setVisible(false);
-			proceedDelete.setVisible(false);
-			proceedDisplay.setVisible(true);
-			proceedSearch.setVisible(false);
-
-			opName.setText("Operation: Display");
-			opName.setVisible(true);
-			lbalance.setVisible(false);
-			balance.setVisible(false);
-		} else if (e.getSource() == searchBtn) {
-			lano.setVisible(true);
-			accNo.setVisible(true);
-			accNo.setText(null);
-			display.setVisible(true);
-			display.setText(null);
-			proceedInsert.setVisible(false);
-			proceedDelete.setVisible(false);
-			proceedDisplay.setVisible(false);
-			proceedSearch.setVisible(true);
-
-			opName.setText("Operation: Search");
-			opName.setVisible(true);
-			lbalance.setVisible(false);
-			balance.setVisible(false);
-		}
+		} 
 
 		if (e.getSource() == proceedInsert) {
 
@@ -343,34 +273,6 @@ public class SellerDashboard implements ActionListener {
 			} else {
 				display.setText("Product could not be deleted.");
 				display.setFont(new Font("Default", Font.BOLD, 17));
-			}
-		}
-		if (e.getSource() == proceedDisplay) {
-			String test = accNo.getText();
-
-			accNo.setText(null);
-
-			if (test.isEmpty() == false) {
-				Account a = searchAccount(test);
-
-				if (a != null) {
-					String column[] = { "Product No.", "Price" };
-					String data[][] = { { "Product No.", "Price (taka)" }, { a.getAccNo(), a.balance() } };// NOT the  recommended  way
-					DefaultTableModel model = new DefaultTableModel(data, column);
-
-					jt.setModel(model);
-					jt.setFont(new Font("Default", Font.BOLD, 17));
-					jt.setBounds(200, 300, 380, 90);
-
-					frame.add(jt);
-
-					jt.setVisible(true);
-					display.setVisible(false);
-				} else {
-					display.setVisible(true);
-					display.setText("Product could not found. ");
-					display.setFont(new Font("Default", Font.BOLD, 17));
-				}
 			}
 		}
 		if (e.getSource() == proceedSearch) {

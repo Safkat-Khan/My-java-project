@@ -10,6 +10,7 @@ public class Profile implements ActionListener {
     private JLabel uName;
     private JTextField userTf;
     private ImageIcon i1;
+    
     JFrame frame;
 
     public Profile(String user) {

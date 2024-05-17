@@ -10,13 +10,12 @@ import java.awt.*;
     JButton svbtn,bcbtn;
     JTextField tf1,tf2,tf3;
   
-
-
     ForgetPass(){  
         fp = new JFrame("Forget Password"); 
+
 		lbl = new JLabel("Forget Password");
+
         lbl.setFont(new Font("Default",Font.BOLD,19));
-        
 		lbl.setBounds(50,50,350,40); 
 		fp.add(lbl);
 
@@ -57,14 +56,12 @@ import java.awt.*;
         tf3 = new JTextField();
         tf3.setBounds(300, 265, 150, 25);
 
-
         //Save Button 
         svbtn = new JButton("Save");
         svbtn.setBounds(315, 320, 90, 30);
         svbtn.setForeground(Color.WHITE); 
         svbtn.setBackground(Color.decode("#2E75B6"));
         svbtn.setFont(new Font("Default", Font.BOLD, 13));
-
 
         //Back Button 
         bcbtn = new JButton("Back");
@@ -73,6 +70,7 @@ import java.awt.*;
         bcbtn.addActionListener(this);
         bcbtn.setFont(new Font("Default", Font.BOLD, 13));
 
+        //-----Addeing component In to the frame-------
         fp.add(label2);
         fp.add(label3);
         fp.add(label4);
@@ -85,6 +83,7 @@ import java.awt.*;
         fp.setIconImage(img.getImage());
 
     }
+    
         public void actionPerformed(ActionEvent e) {
 
         if(e.getSource()==bcbtn)

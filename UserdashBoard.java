@@ -14,6 +14,7 @@ public class UserdashBoard extends JFrame implements ActionListener{
     JButton nxbtn,prvbtn,exbtn;
 
     UserdashBoard() {
+        
         //Creating Frame
         frame1 = new JFrame("DashBoard");
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,7 +72,6 @@ public class UserdashBoard extends JFrame implements ActionListener{
         combo3.setBounds(430, 230, 100, 30);
         combo3.setFont(new Font("Default", Font.BOLD, 10));
 
-
         //Text Added
         text1 = new JLabel("Select Your Drink");
         text1.setBounds(50, 300, 200, 20);
@@ -123,7 +123,6 @@ public class UserdashBoard extends JFrame implements ActionListener{
 		bg1.add(rb2);
 		bg1.add(rb3);
         bg1.add(rb4);
-		//ALL Component Added
         frame1.add(checkBox1);
         frame1.add(checkBox2);
         frame1.add(checkBox3);
@@ -162,5 +161,5 @@ public class UserdashBoard extends JFrame implements ActionListener{
                 {
                     System.exit(0);
                 }
-                }
     }
+}

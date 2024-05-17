@@ -15,6 +15,7 @@ public class Payment extends JFrame implements ActionListener{
     int a;
 
     Payment() {
+
         //Creating Frame
         frame1 = new JFrame("Payment");
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,13 +24,10 @@ public class Payment extends JFrame implements ActionListener{
         // logo
         i1 = new ImageIcon("logo.png");
 
-
         //Text Added
         text1 = new JLabel("Your Bill is : ");
         text1.setBounds(50, 300, 200, 20);
         text1.setFont(new Font("Default", Font.BOLD, 15));
-
-
 
         //Bkash Image Added
         img = new ImageIcon("Bkash.jpg");
@@ -76,7 +74,6 @@ public class Payment extends JFrame implements ActionListener{
         Random rand = new Random();
         int a = rand.nextInt(400) + 101;
 
-
         // Payment Number
         lab7 = new JLabel();
         lab7.setText("       "+ a + " ");
@@ -86,7 +83,6 @@ public class Payment extends JFrame implements ActionListener{
         lab7.setBackground(Color.white);
         lab7.setOpaque(true);
         
-
         //Previous Button
         prvbtn=new JButton("Back");
         prvbtn.setBounds(0, 0, 100, 25);
@@ -105,21 +101,18 @@ public class Payment extends JFrame implements ActionListener{
         exbtn.setBounds(500, 0, 100, 25);
         exbtn.setBackground(Color.orange);
         exbtn.addActionListener(this);
+
         //Button Group
         bg1 = new ButtonGroup();
 		bg1.add(rb1);
 		bg1.add(rb2);
 		bg1.add(rb3);
         bg1.add(rb4);
+
 		//ALL Component Added
         frame1.add(checkBox1);
         frame1.add(checkBox2);
         frame1.add(checkBox3);
-       // frame1.add(rb1);
-       // frame1.add(rb2);
-       // frame1.add(rb3);
-       // frame1.add(rb4);
-
         frame1.add(lab7);
         frame1.add(text1);
         frame1.add(nxbtn);
@@ -133,8 +126,9 @@ public class Payment extends JFrame implements ActionListener{
         frame1.setVisible(true);
         frame1.setBounds(450,  80, 600, 650);
     }
-    //Button Action Perform
+    //------------------Button Action Perform------------------
         public void actionPerformed(ActionEvent e) {
+
         // prvbtn action performed
         if(e.getSource()==prvbtn)
 		{  
@@ -145,15 +139,13 @@ public class Payment extends JFrame implements ActionListener{
             frame1.setVisible(false);
             JOptionPane.showMessageDialog(null, "Your Payment is Successful, Thank You");
         }        
-                if(e.getSource()==exbtn)
-                {
-                    System.exit(0);
-                }
-
+        if(e.getSource()==exbtn)
+            {
+              System.exit(0);
+            }
                 
         int result = 0;
         if (result != (a)) {
             JOptionPane.showMessageDialog(null, "Wrong Captcha.", "Warning!", JOptionPane.WARNING_MESSAGE);}
-                }
-
+        }
     }
