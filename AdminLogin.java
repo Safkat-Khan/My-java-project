@@ -1,24 +1,18 @@
-
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-public class AdminLogin implements ActionListener
-{
+public class AdminLogin implements ActionListener {
     JFrame frm;
     JTextField tf1;
     JPasswordField pf1;
     ImageIcon i1;
-    JButton lgbtn, exbtn,bkbtn;
+    JButton lgbtn, exbtn, bkbtn;
     JLabel label1, label02, header;
 
-    user un1, un2, un3;
+    user un1, un2;
     user users[];
-
-    //Store By Array
-    Account[] accounts = new Account[100];
-
 
     AdminLogin() {
 
@@ -61,7 +55,7 @@ public class AdminLogin implements ActionListener
         bkbtn.setBounds(1, 1, 80, 30);
         bkbtn.setForeground(Color.blue);
         bkbtn.addActionListener(this);
-        bkbtn.setFont(new Font("Default",Font.BOLD,13));
+        bkbtn.setFont(new Font("Default", Font.BOLD, 13));
 
         // user name label
         label1 = new JLabel("Username");
@@ -92,43 +86,41 @@ public class AdminLogin implements ActionListener
         frm.add(exbtn);
         frm.add(label1);
         frm.add(label02);
-
     }
-    //-----------Action On button-----------------
-        public void actionPerformed(ActionEvent e) {
 
-            if (e.getSource() == lgbtn) {
-                String user = tf1.getText();
-                String pass = pf1.getText();
-    
-                int flag = 0;
-    
-                if (user.isEmpty() == false && pass.isEmpty() == false) {
-                    for (int i = 0; i < users.length; i++) {
-                        if (users[i] != null) {
-                            if (user.equals(users[i].getUsername()) && pass.equals(users[i].getPassword())) {
-                                flag = 1;
-                                break;
-                            }
+    //-----------Action On button-----------------
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == lgbtn) {
+            String user = tf1.getText();
+            String pass = new String(pf1.getPassword());
+
+            int flag = 0;
+
+            if (!user.isEmpty() && !pass.isEmpty()) {
+                for (int i = 0; i < users.length; i++) {
+                    if (users[i] != null) {
+                        if (user.equals(users[i].getUsername()) && pass.equals(users[i].getPassword())) {
+                            flag = 1;
+                            break;
                         }
                     }
-                    if (flag == 1) {
-                        new Dashboard(user);
-                        frm.setVisible(false);
-                    } else {
-                        showMessageDialog(null, "Invalid Username or Password!");
-                    }
-                } else {
-                    showMessageDialog(null, "Please Fillup Every Field.");
                 }
+                if (flag == 1) {
+                    frm.setVisible(false);
+                    new AdminDashboard(user);
+                } else {
+                    showMessageDialog(null, "Invalid Username or Password!");
+                }
+            } else {
+                showMessageDialog(null, "Please Fillup Every Field.");
             }
-            else if (e.getSource() == exbtn) {
-                System.exit(0);
-            }
-            if(e.getSource()==bkbtn)
-            {  
-                new LogInPage();
-                frm.setVisible(false);
-            }
+        } else if (e.getSource() == exbtn) {
+            System.exit(0);
+        }
+        if (e.getSource() == bkbtn) {
+            new LogInPage();
+            frm.setVisible(false);
         }
     }
+}

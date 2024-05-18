@@ -1,4 +1,3 @@
-
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -12,6 +11,7 @@ public class LogInPage extends JFrame implements ActionListener {
     JButton lgbtn, fpbtn, sgbtn, exbtn, adminbtn;
     ImageIcon img, icon;
     ImageIcon i1;
+    JCheckBox cb1;
 
     user un1, un2;
     user users[];
@@ -29,10 +29,10 @@ public class LogInPage extends JFrame implements ActionListener {
         users[0] = un1;
         users[1] = un2;
 
-        sl1= new user("seller", "123");
+        sl1 = new user("seller", "123");
 
-        selsman =new user[3];
-        selsman[0] = sl1; 
+        selsman = new user[3];
+        selsman[0] = sl1;
 
         // frame and title added.
         frame = new JFrame("LoginPage");
@@ -68,6 +68,12 @@ public class LogInPage extends JFrame implements ActionListener {
         pf1 = new JPasswordField();
         pf1.setBounds(680, 185, 150, 30);
 
+        // show_password checkbox
+        cb1 = new JCheckBox("Show Password");
+        cb1.setBounds(680, 220, 120, 20);
+        cb1.addActionListener(this);
+        // cb1.setFont(new Font("Default", Font.BOLD, 10));
+
         // Log in button
         lgbtn = new JButton("Login ");
         lgbtn.setBounds(670, 250, 90, 40);
@@ -97,7 +103,7 @@ public class LogInPage extends JFrame implements ActionListener {
         exbtn.addActionListener(this);
         exbtn.setFont(new Font("Default", Font.BOLD, 13));
 
-        //Admin Button
+        // Admin Button
         adminbtn = new JButton("Log in As Admin");
         adminbtn.setBounds(640, 440, 160, 40);
         adminbtn.setBackground(Color.gray);
@@ -139,52 +145,70 @@ public class LogInPage extends JFrame implements ActionListener {
         frame.add(imgLabel2);
         frame.add(imgLabel3);
         frame.add(adminbtn);
+        frame.add(cb1);
         frame.setIconImage(i1.getImage());
     }
 
     // Action Part
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource() == lgbtn) {
             String user = tf1.getText();
-            String pass = pf1.getText();
+            String pass = new String(pf1.getPassword());
 
             int flag = 0;
+            boolean userFound = false;
+            boolean passFound = false;
 
-
-            if (user.isEmpty() == false && pass.isEmpty() == false) {
+            if (!user.isEmpty() && !pass.isEmpty()) {
                 for (int i = 0; i < users.length; i++) {
-                    if (users[i] != null) {
-                        if (user.equals(users[i].getUsername()) && pass.equals(users[i].getPassword())) {
+                    if (users[i] != null && user.equals(users[i].getUsername())) {
+                        userFound = true;
+                        if (pass.equals(users[i].getPassword())) {
                             flag = 1;
                             break;
+                        } else {
+                            passFound = true;
                         }
-                        else if (user.equals(selsman[i].getUsername()) && pass.equals(selsman[i].getPassword())) {
+                    } else if (i < selsman.length && selsman[i] != null && user.equals(selsman[i].getUsername())) {
+                        userFound = true;
+                        if (pass.equals(selsman[i].getPassword())) {
                             flag = 2;
                             break;
+                        } else {
+                            passFound = true;
                         }
                     }
                 }
+
                 if (flag == 1) {
                     new UserdashBoard();
                     frame.setVisible(false);
                     this.setVisible(false);
-                } 
-                else if (flag == 2) {
+                } else if (flag == 2) {
                     new SellerDashboard();
                     frame.setVisible(false);
                     this.setVisible(false);
-                } 
-                else {
-                    showMessageDialog(null, "Invalid Username or password!");
+                } else {
+                    if (userFound) {
+                        showMessageDialog(null, "Invalid password!");
+                    } else {
+                        showMessageDialog(null, "Invalid Username!");
+                    }
                 }
             } else {
-                showMessageDialog(null, " Please Fillup every field.");
+                showMessageDialog(null, "Username and password cannot be empty!");
             }
-
         }
 
-        else if (e.getSource() == exbtn) {
+        if (e.getSource() == cb1) {
+            if (cb1.isSelected()) {
+                pf1.setEchoChar((char) 0); // Show password
+            } else {
+                pf1.setEchoChar('*'); // Mask password
+            }
+        }
+
+        if (e.getSource() == exbtn) {
             System.exit(0);
         }
 
@@ -202,6 +226,9 @@ public class LogInPage extends JFrame implements ActionListener {
             new AdminLogin();
             frame.setVisible(false);
         }
+    }
 
+    public static void main(String[] args) {
+        new LogInPage();
     }
 }

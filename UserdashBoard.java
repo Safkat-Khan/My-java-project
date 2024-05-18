@@ -60,13 +60,13 @@ public class UserdashBoard extends JFrame implements ActionListener{
         combo1.setBounds(70, 230, 100, 30);
         combo1.setFont(new Font("Default", Font.BOLD, 10));
 
-        //Burger Combo Box
+        //pizza Combo Box
         String item[] = { "1", "2", "3", "4", "5" };
         combo2 = new JComboBox(item);
         combo2.setBounds(250, 230, 100, 30);
         combo2.setFont(new Font("Default", Font.BOLD, 10));
 
-        //Burger Combo Box
+        //Sandwidth Combo Box
         String ite[] = { "1", "2", "3", "4", "5" };
         combo3 = new JComboBox(ite);
         combo3.setBounds(430, 230, 100, 30);
@@ -117,6 +117,7 @@ public class UserdashBoard extends JFrame implements ActionListener{
         exbtn.setBounds(500, 0, 100, 25);
         exbtn.setBackground(Color.orange);
         exbtn.addActionListener(this);
+
         //Button Group
         bg1 = new ButtonGroup();
 		bg1.add(rb1);
@@ -145,6 +146,7 @@ public class UserdashBoard extends JFrame implements ActionListener{
         frame1.setVisible(true);
         frame1.setBounds(450,  80, 600, 650);
     }
+    
     //Button Action Perform
         public void actionPerformed(ActionEvent e) {
         if(e.getSource()==prvbtn)
